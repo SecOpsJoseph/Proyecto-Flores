@@ -6,7 +6,7 @@
 // 1. CONFIGURACIÓN — 🌻
 // ============================================================
 
-const FECHA_INICIO = new Date(2026, 3, 30, 7, 58, 0);
+const FECHA_INICIO = new Date(2026, 3, 30, 18, 4, 0);
 
 const TEXTO_AMOR =
   "Flores Amarillas para mi vida:\n\n" +
@@ -122,8 +122,8 @@ function dibujarRamo() {
   ctx.clearRect(0, 0, w*2, h*2);
 
   const baseX = w * 0.5;
-  const baseY = h * 0.92;
-  const alturaRamo = h * 0.55;
+  const baseY = h * 0.25;
+  const alturaRamo = h * 0.52;
 
   const tallos = [];
   for (let i = 0; i < 10; i++) {
@@ -185,14 +185,25 @@ function dibujarRamo() {
   ctx.arc(baseX+22, baseY-16, 6, 0, Math.PI*2);
   ctx.fill();
 
-  for (let i = 0; i < 4; i++) {
+  // Envoltura de cinta decorativa alrededor del tallo
+  for (let j = 0; j < 8; j++) {
+    const wrapY = baseY + 6 + j * 14;
     ctx.beginPath();
-    const x = baseX + (i-1.5)*18;
-    const y = baseY + 8 + Math.sin(i*0.8)*5;
+    ctx.ellipse(baseX, wrapY, 38 + j*1.5, 7, 0, 0, Math.PI*2);
+    ctx.strokeStyle = j % 2 === 0 ? "rgba(215, 90, 59, 0.5)" : "rgba(232, 113, 79, 0.4)";
+    ctx.lineWidth = 2.8;
+    ctx.stroke();
+  }
+
+  // Lazo decorativo (moño) principal
+  for (let i = 0; i < 5; i++) {
+    ctx.beginPath();
+    const x = baseX + (i-2)*14;
+    const y = baseY + 14 + Math.sin(i*0.6)*7;
     ctx.moveTo(x, y);
-    ctx.lineTo(x+12, y+6);
-    ctx.strokeStyle = "#D75A3B";
-    ctx.lineWidth = 3;
+    ctx.lineTo(x+11, y+8);
+    ctx.strokeStyle = i % 2 === 0 ? "#D75A3B" : "#E8714F";
+    ctx.lineWidth = 4;
     ctx.stroke();
   }
 }

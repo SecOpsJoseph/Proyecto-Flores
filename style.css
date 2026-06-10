@@ -104,21 +104,26 @@ body {
 
 /* ---- TEXTO DE AMOR ---- */
 .texto-amor {
-  position: relative;
+  position: absolute;
+  bottom: 125px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
-  width: 58%;
-  min-height: 220px;
-  padding-top: 40px;
+  width: 85%;
+  min-height: auto;
+  text-align: center;
+  padding: 20px;
 }
 
 #carta {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.0rem;
+  font-size: 0.95rem;
   font-weight: 400;
   color: var(--texto);
-  line-height: 1.85;
+  line-height: 1.8;
   white-space: pre-wrap;
   letter-spacing: 0.01em;
+  display: inline-block;
 }
 
 /* Cursor parpadeante estilizado */
