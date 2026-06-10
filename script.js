@@ -252,8 +252,8 @@ function crearFlorVolando() {
   flor.classList.add("Flores_Amarillas");
   flor.textContent = EMOJIS_FLOR[Math.floor(Math.random() * EMOJIS_FLOR.length)];
 
-  // Flores solo en la mitad derecha (donde está el ramo), no sobre el texto
-  const posX     = 20 + Math.random() * 60;
+  // Flores distribuidas por toda la pantalla (0% a 100%)
+  const posX     = Math.random() * 100;
   const duracion = 3.5 + Math.random() * 3.5;
   const delay    = Math.random() * 1.2;
   const top      = -10 + Math.random() * 16;
